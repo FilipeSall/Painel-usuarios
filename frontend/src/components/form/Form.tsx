@@ -65,7 +65,6 @@ const Form = () => {
                     type='email'
                 />
             </div>
-            {errorMessage && <p className={styles.error}>{errorMessage}</p>}
             <button className={styles.submitBtn} type='submit' disabled={loading}>
                 {loading ? 'Criando...' : 'Criar'}
             </button>
