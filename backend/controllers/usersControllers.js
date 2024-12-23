@@ -16,20 +16,14 @@ export const listUsers = async (req, res) => {
 }
 
 //POST /users
-export const newUser = async (req, res) => {
+export const newUser = async (req, res, next) => {
     try {
         const { email, name } = req.body;
-
         const normalizedEmail = email.toLowerCase().trim();
-
         const user = await createUser(name, normalizedEmail);
-
         res.status(201).json({ message: 'Usuário criado com sucesso.', user });
     } catch (error) {
-        if (error instanceof ValidationError) {
-            return res.status(400).json({ error: error.message });
-        }
-        return res.status(500).json({ error: "Um erro inesperado aconteceu." });
+        next(error); 
     }
 }
 

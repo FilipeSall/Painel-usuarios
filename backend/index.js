@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import router from './routes.js';
 import cors from 'cors'; 
+import { errorHandler } from './middlewares/errorhandle.js';
 
 //configurações
 dotenv.config()
@@ -14,6 +15,10 @@ app.use(cors());
 
 // Rotas
 app.use('/users', router);
+
+// Middleware de erro
+app.use(errorHandler);
+
 
 //inicializando o servidor
 app.listen(PORT, () => {
