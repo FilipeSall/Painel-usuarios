@@ -1,6 +1,6 @@
-import prisma from '../config/prismaClient';
-import { ValidationError } from '../utils/errors';
-import emailRegex from '../utils/emailReggex';
+import prisma from '../config/prismaClient.js';
+import { ValidationError } from '../utils/errors.js';
+import emailRegex from '../utils/emailReggex.js';
 
 //Pegar todos os usuários
 export const getAllUsers = async () => {
@@ -21,8 +21,6 @@ export const findUserByEmail = async (email) => {
 //Criar usuário
 export const createUser = async (name, email) => {
     //Validações 
-    if (typeof name !== 'string' || typeof email !== 'string') throw new ValidationError("Campos inválidos");
-
     if (!emailRegex.test(email)) throw new ValidationError('Email inválido');
 
     if (name.length === 0 || email.length === 0) throw new ValidationError("Campos não podem ficar vazios.")
@@ -42,9 +40,7 @@ export const createUser = async (name, email) => {
 }
 
 //Editar usuário
-export const updateUser = async (id, data) => {
-
-    const { email, name } = data;
+export const updateUser = async (id, name, email) => {
 
     const user = await prisma.users.update({
         where: { id: id },
