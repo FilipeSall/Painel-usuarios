@@ -14,6 +14,8 @@
 
 .btnWrapper{
     margin-top: auto;
+    justify-content: center;
+    display: flex;
 }
 
 .submitBtn,

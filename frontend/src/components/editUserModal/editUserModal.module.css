@@ -32,6 +32,12 @@
     flex-direction: column;
 }
 
+.btnWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .submitBtn,
 .cancelBtn {
     padding: 10px 20px;

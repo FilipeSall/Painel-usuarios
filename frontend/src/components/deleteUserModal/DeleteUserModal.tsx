@@ -2,9 +2,17 @@ import styles from './deleteUserModal.module.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useGlobalContext } from '../../GlobalContext';
+import { useRef } from 'react';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const DeleteUserModal = () => {
-    const { currentUser, setIsDeleteUserModal, fetchUsers } = useGlobalContext();
+    const { currentUser, setIsDeleteUserModal, fetchUsers, isDeleteUserModal } = useGlobalContext();
+
+    const modalRef = useRef<HTMLDivElement | null>(null);
+
+    useClickOutside(modalRef, () => setIsDeleteUserModal(false));
+    
+    if (!isDeleteUserModal) return null;
 
     const handleDelete = async () => {
         try {
@@ -24,7 +32,7 @@ const DeleteUserModal = () => {
 
     return (
         <div className={styles.modalOverlay}>
-            <div className={styles.modalContent}>
+            <div className={styles.modalContent} ref={modalRef}>
                 <h2>Confirmar Exclusão</h2>
                 <p>Tem certeza de que deseja excluir o usuário {currentUser?.name}?</p>
                 <button className={styles.confirmBtn} onClick={handleDelete}>
