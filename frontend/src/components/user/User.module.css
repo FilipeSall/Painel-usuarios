@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    box-shadow: 0 1px 5px var(--secondary);
+}
+
+.infoWrapper{
+    width: 70%;
+}
+
+.infoWrapper > h2 {
+    font-size: 2rem;
+}
+
+.btnWrapper{
+    display:flex;
+    width: 25%;
+}
+
+.userBtn{
+    cursor: pointer;
+    width: 100%;
+    background-color: inherit;
+    border: none;
+}

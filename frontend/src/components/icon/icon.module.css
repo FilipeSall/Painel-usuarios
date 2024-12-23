@@ -1,0 +1,11 @@
+.iconWrapper {
+    width: 10%;
+    display: flex;
+    height: calc(100% - 15%);
+    padding: 12px;
+}
+
+.icon {
+    width: 100%;
+    object-fit: contain;
+}
