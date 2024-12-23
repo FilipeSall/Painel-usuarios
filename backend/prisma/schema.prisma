@@ -13,4 +13,3 @@ model users {
   email     String   @unique @db.VarChar(255)
   create_at DateTime @default(now())
 }
-
