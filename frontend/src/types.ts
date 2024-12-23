@@ -1,5 +1,3 @@
-import { ReactNode } from "react"
-
 export interface UserInterface {
     id?: string
     name: string

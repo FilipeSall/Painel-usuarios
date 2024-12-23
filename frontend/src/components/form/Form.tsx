@@ -8,7 +8,6 @@ import { useGlobalContext } from '../../GlobalContext';
 const Form = () => {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const { setIsAddUserModal, fetchUsers } = useGlobalContext();
 
@@ -33,10 +32,8 @@ const Form = () => {
             setIsAddUserModal(false); 
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
-                setErrorMessage(error.response.data.message || 'Erro ao criar usuário');
                 toast.error(error.response.data.message || 'Erro ao criar usuário');
             } else {
-                setErrorMessage('Erro desconhecido. Por favor, tente novamente.');
                 toast.error('Erro desconhecido. Por favor, tente novamente.');
             }
             console.error('Erro:', error);

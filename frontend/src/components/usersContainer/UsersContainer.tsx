@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGlobalContext } from '../../GlobalContext';
 import User from '../user/User';
 import EditUserModal from '../editUserModal/EditUserModal';
