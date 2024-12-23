@@ -9,7 +9,7 @@ Siga os passos abaixo para configurar e iniciar o projeto:
 ### 1. Clone o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/FilipeSall/Painel-usuarios.git
 ```
 
 ### 2. Configure o Backend
