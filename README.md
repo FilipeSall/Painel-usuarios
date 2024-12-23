@@ -67,5 +67,4 @@ Após seguir os passos acima, o projeto estará rodando com o backend e o fronte
 ---
 
 ### Observações
-- Certifique-se de ter o Node.js e o npm instalados em sua máquina.
-- Caso encontre problemas durante a configuração, verifique se seguiu todos os passos corretamente.
+- Certifique-se de ter instalado em sua máquina o MySQL e certifique-se de ter o DB com o nome users.
