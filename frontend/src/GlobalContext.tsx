@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { GlobalContextType, GlobalProviderProps, UserInterface } from "./types";
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -13,18 +13,19 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
+    // Função para buscar usuários
     const fetchUsers = async () => {
         setLoading(true);
         setError(null);
 
         try {
-            const response = await axios.get('http://localhost:3001/users/');
+            const response = await axios.get("http://localhost:3001/users/");
             if (response && response.data) {
-                setUsers(response.data);
+                setUsers(response.data); 
             }
         } catch (err) {
-            setError('Erro ao carregar os usuários.');
-            console.error('Error fetching users:', err);
+            setError("Erro ao carregar os usuários.");
+            console.error("Error fetching users:", err);
         } finally {
             setLoading(false);
         }
@@ -35,25 +36,29 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     }, []);
 
     return (
-        <GlobalContext.Provider value={{
-            isAddUserModal,
-            setIsAddUserModal,
-            isEditUserModal,
-            setIsEditUserModal,
-            isDeleteUserModal,
-            setIsDeleteUserModal,
-            currentUser,
-            setCurrentUser,
-            users,
-            loading,
-            error,
-            fetchUsers
-        }}>
+        <GlobalContext.Provider
+            value={{
+                isAddUserModal,
+                setIsAddUserModal,
+                isEditUserModal,
+                setIsEditUserModal,
+                isDeleteUserModal,
+                setIsDeleteUserModal,
+                currentUser,
+                setCurrentUser,
+                users,
+                setUsers, 
+                loading,
+                error,
+                fetchUsers,
+            }}
+        >
             {children}
         </GlobalContext.Provider>
     );
-}
+};
 
+// Hook para acessar o contexto global
 export const useGlobalContext = (): GlobalContextType => {
     const context = useContext(GlobalContext);
     if (!context) {

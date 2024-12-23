@@ -15,10 +15,12 @@ export interface GlobalContextType {
     currentUser: UserInterface | null;
     setCurrentUser: React.Dispatch<React.SetStateAction<UserInterface | null>>;
     users: UserInterface[];
+    setUsers: React.Dispatch<React.SetStateAction<UserInterface[]>>; 
     loading: boolean;
     error: string | null;
-    fetchUsers: () => void;
+    fetchUsers: () => Promise<void>;
 }
+
 
 export interface GlobalProviderProps {
     children: React.ReactNode

@@ -12,7 +12,7 @@ const User = ({ id, create_at, email, name }: UserInterface) => {
         setIsEditUserModal(true);
     };
 
-    const handleDeleteClick = () => {
+    const handleDeleteClick = async () => {
         setCurrentUser({ id, create_at, email, name });
         setIsDeleteUserModal(true);
     };
