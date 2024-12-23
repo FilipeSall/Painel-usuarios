@@ -1,9 +1,11 @@
+import React from 'react';
 import { useGlobalContext } from '../../GlobalContext';
 import User from '../user/User';
+import EditUserModal from '../editUserModal/EditUserModal';
 import styles from './usersContainer.module.css';
 
 const UsersContainer = () => {
-    const { users, error, loading } = useGlobalContext();
+    const { users, error, loading, isEditUserModal } = useGlobalContext();
 
     return (
         <section className={styles.section}>
@@ -13,6 +15,7 @@ const UsersContainer = () => {
                 {!loading && !error && users && users.map((user) => (
                     <User
                         key={user.id}
+                        id={user.id}
                         create_at={user.create_at}
                         email={user.email}
                         name={user.name}
@@ -22,6 +25,7 @@ const UsersContainer = () => {
                     <p>Nenhum usuário encontrado.</p>
                 )}
             </div>
+            {isEditUserModal && <EditUserModal />}
         </section>
     );
 };

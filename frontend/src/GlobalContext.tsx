@@ -6,6 +6,8 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     const [isAddUserModal, setIsAddUserModal] = useState<boolean>(false);
+    const [isEditUserModal, setIsEditUserModal] = useState<boolean>(false);
+    const [currentUser, setCurrentUser] = useState<UserInterface | null>(null);
     const [users, setUsers] = useState<UserInterface[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -32,7 +34,18 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     }, []);
 
     return (
-        <GlobalContext.Provider value={{ isAddUserModal, setIsAddUserModal, users, loading, error, fetchUsers }}>
+        <GlobalContext.Provider value={{
+            isAddUserModal,
+            setIsAddUserModal,
+            isEditUserModal,
+            setIsEditUserModal,
+            currentUser,
+            setCurrentUser,
+            users,
+            loading,
+            error,
+            fetchUsers
+        }}>
             {children}
         </GlobalContext.Provider>
     );
