@@ -7,7 +7,7 @@ import useClickOutside from '../../hooks/useClickOutside';
 import { UserInterface } from '../../types';
 
 const DeleteUserModal = () => {
-    const { currentUser, setIsDeleteUserModal, setUsers, users, isDeleteUserModal } = useGlobalContext();
+    const { currentUser, setIsDeleteUserModal, setUsers, isDeleteUserModal } = useGlobalContext();
     const modalRef = useRef<HTMLDivElement | null>(null);
 
     useClickOutside(modalRef, () => setIsDeleteUserModal(false));
