@@ -1,10 +1,11 @@
 import { useGlobalContext } from '../../GlobalContext';
 import User from '../user/User';
 import EditUserModal from '../editUserModal/EditUserModal';
+import DeleteUserModal from '../deleteUserModal/DeleteUserModal';
 import styles from './usersContainer.module.css';
 
 const UsersContainer = () => {
-    const { users, error, loading, isEditUserModal } = useGlobalContext();
+    const { users, error, loading, isEditUserModal, isDeleteUserModal } = useGlobalContext();
 
     return (
         <section className={styles.section}>
@@ -25,6 +26,7 @@ const UsersContainer = () => {
                 )}
             </div>
             {isEditUserModal && <EditUserModal />}
+            {isDeleteUserModal && <DeleteUserModal />}
         </section>
     );
 };

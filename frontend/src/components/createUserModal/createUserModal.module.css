@@ -12,14 +12,15 @@
 }
 
 .modal {
-    width: 50%;
-    height: 40vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
-    border-radius: 8px;
     padding: 20px;
-    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1001;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -10,6 +10,8 @@ export interface GlobalContextType {
     setIsAddUserModal: React.Dispatch<React.SetStateAction<boolean>>;
     isEditUserModal: boolean;
     setIsEditUserModal: React.Dispatch<React.SetStateAction<boolean>>;
+    isDeleteUserModal: boolean;
+    setIsDeleteUserModal: React.Dispatch<React.SetStateAction<boolean>>;
     currentUser: UserInterface | null;
     setCurrentUser: React.Dispatch<React.SetStateAction<UserInterface | null>>;
     users: UserInterface[];

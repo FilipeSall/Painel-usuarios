@@ -7,6 +7,7 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     const [isAddUserModal, setIsAddUserModal] = useState<boolean>(false);
     const [isEditUserModal, setIsEditUserModal] = useState<boolean>(false);
+    const [isDeleteUserModal, setIsDeleteUserModal] = useState<boolean>(false);
     const [currentUser, setCurrentUser] = useState<UserInterface | null>(null);
     const [users, setUsers] = useState<UserInterface[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -39,6 +40,8 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
             setIsAddUserModal,
             isEditUserModal,
             setIsEditUserModal,
+            isDeleteUserModal,
+            setIsDeleteUserModal,
             currentUser,
             setCurrentUser,
             users,

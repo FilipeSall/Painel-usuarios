@@ -28,8 +28,8 @@ const Form = () => {
             });
 
             toast.success('Usuário criado com sucesso!');
-            fetchUsers(); 
-            setIsAddUserModal(false); 
+            fetchUsers();
+            setIsAddUserModal(false);
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
                 toast.error(error.response.data.message || 'Erro ao criar usuário');
@@ -62,9 +62,14 @@ const Form = () => {
                     type='email'
                 />
             </div>
-            <button className={styles.submitBtn} type='submit' disabled={loading}>
-                {loading ? 'Criando...' : 'Criar'}
-            </button>
+            <div className={styles.btnWrapper}>
+                <button className={styles.submitBtn} type='submit' disabled={loading}>
+                    {loading ? 'Atualizando...' : 'Atualizar'}
+                </button>
+                <button className={styles.cancelBtn} type='button' onClick={() =>  setIsAddUserModal(false)}>
+                    Cancelar
+                </button>
+            </div>
         </form>
     );
 };
